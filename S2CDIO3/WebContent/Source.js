@@ -18,7 +18,7 @@ $(document).ready(function(){
 		$('#createUser').show();
 	})
 	
-	$('#confirmCreateUser').click(function(){
+	$('#confirmCreateUser').submit(function(){
 		event.preventDefault();
 		$('#adminContainer').show();
 		$('#createUser').hide();
@@ -30,4 +30,6 @@ $(document).ready(function(){
 		$('#createUser').hide();
 	})
 
+	
 })
+
