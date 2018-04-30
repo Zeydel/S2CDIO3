@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<P class = "blocktext">
+<head>
+<meta charset="ISO-8859-1">
+<title>Login side</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="loginCSS.css">
+<script src=".\jquery-3.3.1.js"></script>
+<script src=".\Source.js"></script>
+</head>
+<body>
+<div class="container">
+	<div id='LoginContainer' class="frontpage col-md-6 col-md-offset-3 text-center">
+		<p style="font-size: 160%;">
+			<b>Logon Page</b>
+		</p>
+		<form id='tobias'>
+			Username <input type="text">
+			<br> Password <input
+				type="password"><br> 
+				<input id='submit' type="submit"
+				value="Submit">
+		</form>
+		<img alt="IsaacsFar" src="DTUlogo.png"
+			style="width: 200px; height: 200px; padding: 10px">
+	</div>
+
+
+
+	<div id='adminContainer' class="mainpage">
+		<p>
+			<button type='button' id = 'createNewUser'>Opret Ny Bruger</button>
+		</p>
+
+		<table id="users">
+			<div>
+				<tr>
+					<th>BrugerID</th>
+					<th>BrugerNavn</th>
+					<th>Rolle</th>
+					<th>Fornavn</th>
+					<th>Vej</th>
+					<th>AdresseNummer</th>
+					<th>Postnummer</th>
+					<th>By</th>
+					<th></th>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>Brian</td>
+					<td>Administrator</td>
+					<td>Brian Bjørn</td>
+					<td>Anker Engelundsvej</td>
+					<td>1</td>
+					<td>2800</td>
+					<td>Lyngby</td>
+					<td><button type='button' id = 'deleteUser'>Delete user</button></td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>aa</td>
+					<td>Bruger</td>
+					<td>Anders</td>
+					<td>Paradisæblevej</td>
+					<td>13</td>
+					<td>1000</td>
+					<td>Andeby</td>
+					<td><button type='button' id = 'deleteUser'>Delete user</button></td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>ra</td>
+					<td>Bruger</td>
+					<td>Rip</td>
+					<td>Paradisæblevej</td>
+					<td>13</td>
+					<td>1000</td>
+					<td>Andeby</td>
+					<td><button type='button' id = 'deleteUser'>Delete user</button></td>
+				</tr>
+			</div>
+		</table>
+	</div>
+</div>
+
+<form action="/action_page.php" style="border:1px solid #ccc">
+  <div id = 'createUser' class="container">
+    <h1>Create User</h1>
+    <p>Please fill in your data to create a user</p>
+    <hr>
+
+    <label for="username"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="username" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+
+    <label for="psw-repeat"><b>Repeat Password</b></label>
+    <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+    
+    <label for="CPR"><b>Enter CPR</b></label>
+    <input type="CPR" placeholder="Enter CPR Number" name="CPR" required>
+    
+    <label for="Roles"><b>Enter Roles</b></label>
+    <input type="Roles" placeholders="Enter Roles" name="Roles" required>
+
+    <div class="clearfix">
+      <button type="button" class="cancelbtn" id='cancel'>Cancel</button>
+      <button type="submit" class="signupbtn" id='confirmCreateUser'>Sign Up</button>
+    </div>
+  </div>
+</form>
+
+</body>
+
+
+</html>
