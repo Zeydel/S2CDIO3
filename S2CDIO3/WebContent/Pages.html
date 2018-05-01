@@ -7,20 +7,25 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="loginCSS.css">
 <script src=".\jquery-3.3.1.js"></script>
-<script src=".\Source.js"></script>
+<script src=".\source.js"></script>
 </head>
+
+ 
 <body>
 <div class="container">
 	<div id='LoginContainer' class="frontpage col-md-6 col-md-offset-3 text-center">
 		<p style="font-size: 160%;">
 			<b>Logon Page</b>
 		</p>
-		<form name = "myform" id='tobias' onsubmit = form_validate()>
-			Username <input type="text" name="fname">
+		<form onsubmit = "return validate_login()" method="post" id='tobias'>
+			Username <input type="text" id="fname">
+			<div id = "err_username_message"></div>
 			<br> Password <input
-				type="password" name="field2"><br> 
+				type="password" id="user_password">
+				<div id = "err_password_message"></div>
+				<br> 
 				<input id='submit'  type="submit"
-				value="Submit">
+				value="Log In">
 		</form>
 		<img alt="IsaacsFar" src="DTUlogo.png"
 			style="width: 200px; height: 200px; padding: 10px">
@@ -58,26 +63,31 @@
 	</div>
 </div>
 
-<form action="/action_page.php" style="border:1px solid #ccc" name ="createUser" onsubmit = create_User()>
+<form  onsubmit = "return form_validate()" method="post" style="border:1px solid #ccc" name ="createUser">
   <div id = 'createUser' class="container" >
     <h1>Create User</h1>
     <p>Please fill in your data to create a user</p>
     <hr>
 
     <label for="username"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="username" required>
+    <input type="text" placeholder="Enter Username" id="username">
+    <div id="err_username_msg"></div>
 
     <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+    <input type="password"  onkeyup="checkPassword()" placeholder="Enter Password" id="psw" >
+    <div id = "err_password_msg"></div>
 
     <label for="psw-repeat"><b>Repeat Password</b></label>
-    <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+    <input type="password" placeholder="Repeat Password" id="psw_repeat" onkeyup="checkPassword()">
+    <div id = "err_passwordrepeat_msg"></div>
     
     <label for="CPR"><b>Enter CPR</b></label>
-    <input type="CPR" placeholder="Enter CPR Number" name="CPR" required>
+    <input type="CPR" placeholder="Enter CPR Number" id="CPR">
+    <div id = "err_CPR_msg"></div>
     
     <label for="Roles"><b>Enter Roles</b></label>
-    <input type="Roles" placeholder="Enter Roles" name="Roles" required>
+    <input type="Roles" placeholder="Enter Roles" id="Roles">
+    <div id = "err_roles_msg"></div>
 
     <div class="buttons">
       <button type="button" class="cancelbtn" id='cancel'>Cancel</button>
@@ -85,55 +95,8 @@
     </div>
   </div>
 </form>
-<script>	
-function form_validate() {
-	var h = document.forms["myform"]["fname"].value;
-	var g = document.forms["myform"]["field2"].value;
-	if (h == ""){
-		alert("Name must be filled out");
-		return false;
-	}
-	if (g == ""){
-		alert("Password must be filled out")
-		return false;
-	}
-}
 
-
-function create_User(){
-	var x = document.forms["createUser"]["username"].value;
-	if (x == "" || x == null){
-		alert("Username must be filled out");
-		return false;
-	}
-	var y = document.forms["createUser"]["psw"].value;
-	if (y ==""|| y == null){
-		alert("Password must be entered")
-		return false;
-	}
-	var z = document.forms["createUser"]["psw-repeat"].value;
-	if(z=="" || z == null;){
-		alert("Please repeat password")
-		return false;
-	}
-	var a = document.forms["createUser"]["CPR"].value;
-	if(a=="" || a == null){
-		alert("CPR must be entered correctly. XXXXXX-XXXX")
-		return false;
-	}
-	var b = document.forms["createUser"]["Roles"].value;
-	if(b=="" || b == null){
-		alert("Please type in roles")
-		return false;	
-	}
-	return true;
-}
-
-
-
-</script>
  
-	  
 
 </body>
 
