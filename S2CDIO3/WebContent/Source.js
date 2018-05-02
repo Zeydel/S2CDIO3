@@ -14,8 +14,17 @@ $(document).ready(function(){
 		$('#mainContainer').load('CreateUser.html');
 	})
 
-	$('#createUser').click(function(){
+	$('#confirmCreateUser').click(function(){
 		event.preventDefault();
+		$.ajax({
+			url : 'rest/hello',
+			type : 'POST',
+			data: ('#createUserForm').serializeJSON,
+			contentType : ("text/plain"),
+			success : function(data){
+				$('users').html(data)
+			}
+		})
 		$('#mainContainer').load('adminContainer.html');
 	})
 	
@@ -23,6 +32,17 @@ $(document).ready(function(){
 		event.preventDefault();
 		$('#mainContainer').load('adminContainer.html');
 	})
+	
+	
+	function generateUserHTML(UserDTO) {
+		return '<tr><td>' + UserDTO.userId + '</td> +
+				'<td>' + UserDTO.userName + '</td>' +
+				'<td>' + UserDTO.ini + '</td'> + 
+				'<td>' + UserDTO.roles + '</td>' +
+				'<td>' + UserDTO.password + '</td>' +
+				'<td>' + UserDTO.cpr + '</td>' + '</tr>';
+	}
+	
 	
 })
 
