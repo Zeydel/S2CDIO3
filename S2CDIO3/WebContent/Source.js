@@ -7,37 +7,67 @@ $(document).ready(function(){
 	$('#LoginContainer').submit(function(){
 		event.preventDefault();
 		$('#mainContainer').load('adminContainer.html');
+		loadUsers()
 	})
 	
 	$('#adminCon').submit(function(){
 		event.preventDefault();
 		$('#mainContainer').load('CreateUser.html');
+		loadUsers()
 	})
-
+	
 	$('#confirmCreateUser').click(function(){
 		event.preventDefault();
+		createUser();
+		$('#mainContainer').load('adminContainer.html');
+	})
+
+	function createUser(){
+		event.preventDefault();
 		$.ajax({
-			url : 'rest/hello',
+			url : 'rest/user',
 			type : 'POST',
 			data: ('#createUserForm').serializeJSON,
-			contentType : ("text/plain"),
+			contentType : ("application/json"),
 			success : function(data){
-				$('users').html(data)
+				alert(HEJ)
 			}
 		})
 		$('#mainContainer').load('adminContainer.html');
-	})
+	}
+	
+	function loadUsers(){
+		event.preventDefault();
+		$.ajax({
+			url : 'rest/user',
+			type : 'GET',
+			success : function(){
+				$.each(json, function(i, el){
+					$('#userTableBody').append(el)
+				})
+				
+			}
+		})
+	}
+	
 	
 	$('#cancel').click(function(){
 		event.preventDefault();
 		$('#mainContainer').load('adminContainer.html');
 	})
 	
+	function generateHTML(json){
+		var html = '<tr>'
+		$.each(json, function(i, elt) {
+			html += '<td>' + elt + '</td>';
+		});
+		return html += '</tr>'
+	}
 	
 	function generateUserHTML(UserDTO) {
-		return '<tr><td>' + UserDTO.userId + '</td> +
+		return '<tr><td>' + UserDTO.userId + '</td>' +
 				'<td>' + UserDTO.userName + '</td>' +
-				'<td>' + UserDTO.ini + '</td'> + 
+				'<td>' + UserDTO.ini + '</td>' + 
 				'<td>' + UserDTO.roles + '</td>' +
 				'<td>' + UserDTO.password + '</td>' +
 				'<td>' + UserDTO.cpr + '</td>' + '</tr>';

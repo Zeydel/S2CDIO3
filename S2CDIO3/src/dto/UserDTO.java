@@ -1,3 +1,4 @@
+package dto;
 
 
 import java.io.Serializable;
@@ -21,6 +22,10 @@ public class UserDTO implements Serializable{
 		this.roles = roles;
 		this.password = password;
 		this.cpr = cpr;
+	}
+	
+	public UserDTO() {
+		
 	}
 	
 	public String toString() {
