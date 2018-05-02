@@ -2,34 +2,31 @@
  * 
  */
 $(document).ready(function(){
-	$('#adminContainer').hide();
-	$('#createUser').hide();
-
-	$('#tobias').submit(function(){
+	$('#mainContainer').show();
+	
+	$('#LoginContainer').submit(function(){
 		event.preventDefault();
-		$('#LoginContainer').hide();
-		$('#adminContainer').show();
-
+		$('#mainContainer').load('adminContainer.html');
 	})
 	
-	$('#createNewUser').click(function(){
+	$('#adminCon').submit(function(){
 		event.preventDefault();
-		$('#adminContainer').hide();
-		$('#createUser').show();
+		$('#mainContainer').load('CreateUser.html');
 	})
-	
-	$('#confirmCreateUser').submit(function(){
+
+	$('#createUser').click(function(){
 		event.preventDefault();
-		$('#adminContainer').show();
-		$('#createUser').hide();
+		$('#mainContainer').load('adminContainer.html');
 	})
 	
 	$('#cancel').click(function(){
 		event.preventDefault();
-		$('#adminContainer').show();
-		$('#createUser').hide();
+		$('#mainContainer').load('adminContainer.html');
 	})
-	<script>	function form_validate(){
+	
+})
+
+/*	function form_validate(){
 		//alert("function is there");
 		var e = 0;
 		if(isEmpty("username", "Please type in your username", "err_username_msg"))
@@ -118,7 +115,4 @@ $(document).ready(function(){
 		{
 			return true;
 		}
-	}
-
-})
-
+	}*/

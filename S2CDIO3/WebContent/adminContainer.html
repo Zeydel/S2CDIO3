@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Administration</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="loginCSS.css">
+<script src=".\jquery-3.3.1.js"></script>
+<script src=".\Source.js"></script>
+</head>
+<body>
+
+	<div id='adminContainer' class="mainpage">
+		<p>
+		<form id = 'adminCon'> 
+			<input type='submit' id = 'createNewUser' value = "Create User" class ='signupbtn'></input>
+
+
+		<table id="users">
+
+				<tr>
+					<th>BrugerID</th>
+					<th>BrugerNavn</th>
+					<th>Initialer</th>
+					<th>Rolle</th>
+					<th>Password</th>
+					<th>CPR</th>
+					<th></th>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>Brian</td>
+					<td>BB</td>
+					<td>Administrator</td>
+					<td>ugsin78Hf</td>
+					<td>123456-7890</td>
+					<td><button type='button' id = 'deleteUser'>Delete user</button></td>
+				</tr>
+
+		</table>
+		</form>
+	</div>
+
+</body>
+</html>
